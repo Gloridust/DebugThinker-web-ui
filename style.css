@@ -1,0 +1,60 @@
+/* Reset some default browser styles */
+body, h1, h2, p, label, textarea, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+textarea#result {
+    background-color: #f7f7f7;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    resize: none;
+}

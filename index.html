@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DebugThinker-WebUI</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <h1>DebugThinker</h1>
+    <form id="textForm">
+        <label for="code">Code:</label><br>
+        <textarea id="code" name="code" rows="5" cols="40"></textarea><br>
+
+        <label for="word">Word:</label><br>
+        <textarea id="word" name="word" rows="5" cols="40"></textarea><br>
+
+        <button type="button" onclick="generateText()">生成文本</button>
+    </form>
+
+    <h2>生成结果</h2>
+    <textarea id="result" rows="5" cols="40" readonly></textarea>
+
+    <script>
+        function generateText() {
+            var code = document.getElementById("code").value;
+            var word = document.getElementById("word").value;
+
+            // 创建一个包含要发送的数据的对象
+            var data = {
+                "code": code,
+                "word": word
+            };
+
+            // 发送POST请求到后端
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 将生成的文本显示在result文本框中
+                document.getElementById("result").value = data.result;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
