@@ -21,33 +21,34 @@
     <textarea id="result" rows="5" cols="40" readonly></textarea>
 
     <script>
-        function generateText() {
-            var code = document.getElementById("code").value;
-            var word = document.getElementById("word").value;
+       function generateText() {
+    var code = document.getElementById("code").value;
+    var word = document.getElementById("word").value;
 
-            // 创建一个包含要发送的数据的对象
-            var data = {
-                "code": code,
-                "word": word
-            };
+    // 创建一个包含要发送的数据的对象
+    var data = {
+        "code": code,
+        "word": word
+    };
 
-            // 发送POST请求到后端
-            fetch('/generate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // 将生成的文本显示在result文本框中
-                document.getElementById("result").value = data.result;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
+    // 发送POST请求到后端
+    fetch('http://127.0.0.1:3000/generate', {  // 修改URL为绝对路径
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // 将生成的文本显示在result文本框中
+        document.getElementById("result").value = data.result;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
     </script>
 </body>
 </html>
