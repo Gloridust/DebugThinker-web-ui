@@ -14,7 +14,7 @@
         <label for="word">Word:</label><br>
         <textarea id="word" name="word" rows="5" cols="40"></textarea><br>
 
-        <button type="button" onclick="generateText()">生成文本</button>
+        <button type="button" onclick="generateText()">提交</button>
     </form>
 
     <h2>生成结果</h2>
@@ -28,11 +28,11 @@
     // 创建一个包含要发送的数据的对象
     var data = {
         "code": code,
-        "word": word
+        "word": word,
     };
 
     // 发送POST请求到后端
-    fetch('http://127.0.0.1:3000/generate', {  // 修改URL为绝对路径
+    fetch('http://127.0.0.1:3000/generate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
