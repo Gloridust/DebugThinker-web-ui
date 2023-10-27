@@ -40,9 +40,9 @@
         body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => {
+    .then(message => {
         // 将生成的文本显示在result文本框中
-        document.getElementById("result").value = data.result;
+        document.getElementById("message").value = message.result;
     })
     .catch(error => {
         console.error('Error:', error);
